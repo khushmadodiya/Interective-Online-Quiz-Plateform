@@ -3,10 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../resources/firestore_methso.dart';
+import '../screens/faculty/marks_screen.dart';
 import '../screens/faculty/question_screen.dart';
-import '../screens/faculty/student_marks_screen.dart';
 import '../utils/utils.dart';
 
 class FacultyCard extends StatefulWidget {

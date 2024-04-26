@@ -24,6 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController passcontroller = TextEditingController();
   String selectedValue = 'Student';
   Uint8List? _image;
+  bool flag= false;
 
   selectImage() async {
     Uint8List im = await pickImage(ImageSource.gallery);
@@ -32,8 +33,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
   submit()async{
+    setState(() {
+      flag = true;
+    });
    String res= await AuthMethod().signup(email: emailcontroller.text.trim(), password: passcontroller.text.trim(), name: namecontroller.text.trim(), file: _image!, usertype: selectedValue);
    shosnacbar(context, res);
+   setState(() {
+     flag = false;
+   });
    if(res=='success'){
      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
    }
@@ -123,7 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: 20,
               ),
-              FilledButton(onPressed: submit, child: Text('  Sign Up  ')),
+              FilledButton(onPressed: submit, child: flag ?CircularProgressIndicator(color: Colors.white,): Text('  Sign Up  ')),
               SizedBox(height: 20,),
               Container(
                 child: Row(

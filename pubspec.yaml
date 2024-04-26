@@ -52,6 +52,9 @@ dependencies:
   device_info: ^2.0.3
   intl: ^0.19.0
   keyboard_hider: ^1.0.0
+#  flutter_inappwebview: ^6.0.0
+  flutter_inappwebview: ^5.7.2+3
+  webview_flutter: ^2.8.0
 
 
 dev_dependencies:

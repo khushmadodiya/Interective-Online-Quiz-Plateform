@@ -1,5 +1,5 @@
 List animals = [
-  'Avengers.gif',
+  'Avengers.png',
   'bahubali.gif',
   'camel.gif',
   'captain america.gif',

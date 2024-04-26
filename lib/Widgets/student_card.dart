@@ -1,6 +1,11 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quiz_platform/screens/student/view_score.dart';
 import '../screens/faculty/question_screen.dart';
 import '../screens/student/quiz_screen.dart';
 import '../utils/utils.dart';
@@ -17,11 +22,21 @@ class StudentCard extends StatefulWidget {
 }
 
 class _StudentCardState extends State<StudentCard> {
-
+  int marks=0;
+  int max=0;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-
+    Future<void> getmarks() async {
+      DocumentSnapshot snapshot = await FirebaseFirestore.instance
+          .collection('quiz')
+          .doc(widget.snap['quizuid'])
+          .collection('students')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+      marks= snapshot['marks'];
+      max =snapshot['totalmarks'];
+    }
     return Container(
         margin: EdgeInsets.symmetric(
           horizontal: width > webScreenSize ? width * 0.3 : 30,
@@ -51,13 +66,21 @@ class _StudentCardState extends State<StudentCard> {
                 widget.snap['subname'].toString(),
                 style: TextStyle(fontSize: 15),
               ),
-              trailing:ElevatedButton(
+              trailing:!widget.snap['status']?ElevatedButton(
                 onPressed: (){
                   print('/n');
                   print(widget.snap['quizuid']);
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Quiz(snap: widget.snap,)));},
                 child: Text('Join Quiz'),
+              ):ElevatedButton(
+                onPressed: ()async{
+                  print('/n');
+                  print(widget.snap['quizuid']);
+                  await getmarks();
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewScore(marks: marks,max:max)));},
+                child: Text('View Score'),
               )
+
             ),
             Expanded(
               child: Align(

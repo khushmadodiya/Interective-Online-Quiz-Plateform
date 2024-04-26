@@ -17,7 +17,7 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  void getmarks() async {
+  Future<void> getmarks() async {
     DocumentSnapshot snapshot = await FirebaseFirestore.instance
         .collection('quiz')
         .doc(widget.snap['quizuid'])

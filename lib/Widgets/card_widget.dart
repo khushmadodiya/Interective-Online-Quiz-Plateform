@@ -47,7 +47,7 @@ class _CardWidState extends State<CardWid> {
             child:
             Column(
                 children: [
-                  widget.isspot ?Container(height:MediaQuery.of(context).size.height/3.67,child: Image.asset('assets/spot/${spot[widget.index]}')):Container(height:200,child: Image.asset('assets/animals/${animals[widget.index]}')),
+                  widget.isspot ?Container(height:MediaQuery.of(context).size.height/3.67,child: Image.asset('assets/spot/${spot[widget.index]}')):Container(height:MediaQuery.of(context).size.height/3.67,child: Image.asset('assets/animals/${animals[widget.index]}')),
                   Container(
                       height: MediaQuery.of(context).size.height/14,
                       decoration: BoxDecoration(

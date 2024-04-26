@@ -14,10 +14,17 @@ class JoinQuiz extends StatefulWidget {
 }
 
 class _JoinQuizState extends State<JoinQuiz> {
+  bool flag = false;
 
   TextEditingController codecontroller = TextEditingController();
   _submit()async{
+    setState(() {
+      flag = true;
+    });
     String res = await FireStoreMethos().add_student_to_quiz(quid: codecontroller.text.trim());
+    setState(() {
+      flag = false;
+    });
     if(res=='success'){
       shosnacbar(context, res);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>StudentScreen()));
@@ -46,7 +53,7 @@ class _JoinQuizState extends State<JoinQuiz> {
             SizedBox(
               height: 20,
             ),
-            FilledButton(onPressed: _submit, child: Text('  Submit  ')),
+            FilledButton(onPressed: _submit, child: flag ? CircularProgressIndicator(color: Colors.white,): Text('  Submit  ')),
             SizedBox(height: 20,)
           ],
         ),

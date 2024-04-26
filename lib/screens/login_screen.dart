@@ -21,12 +21,19 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passcontroller = TextEditingController();
   String selectedValue = value1;
+  bool flag = false;
   @override
   Widget build(BuildContext context) {
    final Width=MediaQuery.of(context).size.width;
    final Height=MediaQuery.of(context).size.height;
    login()async{
+     setState(() {
+       flag = true;
+     });
      String res = await AuthMethod().loginUser(email: emailcontroller.text.trim(), password: passcontroller.text.trim());
+     setState(() {
+       flag = false;
+     });
      if(res=='success'){
        var pref = await SharedPreferences.getInstance();
        pref.setString('key', selectedValue);
@@ -80,7 +87,7 @@ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>cons
               SizedBox(height: 20,),
               InputText(controller: passcontroller, hint:'Enter password',ispass: true,isform: true,),
               SizedBox(height: 25,),
-              FilledButton(onPressed:login, child: Text('  Log in  ')),
+              FilledButton(onPressed:login, child: flag?CircularProgressIndicator(color: Colors.white,): Text('  Log in  ')),
               SizedBox(height: 10,),
               Container(
                 child: Row(

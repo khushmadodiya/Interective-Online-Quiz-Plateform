@@ -3,6 +3,7 @@ import 'package:quiz_platform/screens/sign_up_screen.dart';
 
 import 'login_screen.dart';
 import 'offline quizes/guess_name.dart';
+import 'offline quizes/quiz_bot.dart';
 import 'offline quizes/spot_the_diffrence.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   void initState() {
     // TODO: implement initState
     super.initState();
-_tabController=TabController(length: 2, vsync: this);
+_tabController=TabController(length: 3, vsync: this);
   }
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,7 @@ _tabController=TabController(length: 2, vsync: this);
         // ),
         title: Text('Online Quiz'),
         bottom:TabBar(
+          isScrollable: false,
           controller: _tabController,
           tabs: [
             Tab(
@@ -38,6 +40,9 @@ _tabController=TabController(length: 2, vsync: this);
             Tab(
               child: Text('Guess name'),
             ),
+            Tab(
+              child: Text('QuizBot'),
+            )
           ],
           
         ),
@@ -114,10 +119,13 @@ _tabController=TabController(length: 2, vsync: this);
         ],
       ),
       body: TabBarView(
+        physics: ScrollPhysics(),
         controller: _tabController,
         children: [
           Spot(),
-          Guess()
+          Guess(),
+          QuizBot()
+          // Text('hello')
         ]
 
       )

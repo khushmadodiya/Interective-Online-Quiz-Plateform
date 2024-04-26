@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_platform/screens/HomeScreen.dart';
+import 'package:quiz_platform/screens/offline%20quizes/guess_name.dart';
 import 'package:quiz_platform/screens/offline%20quizes/spot_the_diffrence.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../Widgets/student_card.dart';
@@ -94,7 +95,7 @@ class _StudentScreenState extends State<StudentScreen> {
                     Navigator.pop(context);
                     Navigator.push(context,
                         MaterialPageRoute(
-                            builder: (context) => SignUpScreen()));
+                            builder: (context) => Guess()));
                   }),
             ],
           );
@@ -195,7 +196,7 @@ class _StudentScreenState extends State<StudentScreen> {
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
-            .collection('student').doc(FirebaseAuth.instance.currentUser!.uid).collection('quizes').where('status',isEqualTo: false)
+            .collection('student').doc(FirebaseAuth.instance.currentUser!.uid).collection('quizes')
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
