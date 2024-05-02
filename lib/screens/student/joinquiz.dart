@@ -27,7 +27,7 @@ class _JoinQuizState extends State<JoinQuiz> {
     });
     if(res=='success'){
       shosnacbar(context, res);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>StudentScreen()));
+     Navigator.pop(context);
     }
   }
   @override

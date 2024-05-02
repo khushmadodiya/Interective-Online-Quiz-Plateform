@@ -221,7 +221,7 @@ class FireStoreMethos {
     String res = 'erro occured';
    try{
      await _firestore
-         .collection('quiz')
+         .collection('admin')
          .doc(quid)
          .collection('students')
          .doc(_auth.currentUser!.uid)
@@ -299,11 +299,11 @@ class FireStoreMethos {
       String res = 'Error occured';
       DateTime now = DateTime.now();
       String formattedDate = DateFormat.yMMMMd().format(now);
-      String devicename = await getDeviceName();
+      // String devicename = await getDeviceName();
       var uid = Uuid().v1().substring(0,4);
       FirebaseFirestore.instance.collection(maincollectionname).doc(collname).collection('uid').doc(uid).set({
         'ans':ans,
-        'device':devicename,
+        // 'device':devicename,
         'time':'${formattedDate}'
       });
         res = 's';

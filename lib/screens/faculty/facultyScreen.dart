@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quiz_platform/screens/profile_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Widgets/facultycard.dart';
@@ -15,28 +16,18 @@ import 'create_quiz.dart';
 
 
 class FacultyScreen extends StatefulWidget {
-  const FacultyScreen({super.key});
+
+  const FacultyScreen({super.key,});
 
   @override
   State<FacultyScreen> createState() => _FacultyScreenState();
 }
 
 class _FacultyScreenState extends State<FacultyScreen> {
-  String url ='https://www.google.com/imgres?q=person%20image&imgurl=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F01%2F65%2F63%2F94%2F360_F_165639425_kRh61s497pV7IOPAjwjme1btB8ICkV0L.jpg&imgrefurl=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dperson&docid=u8MkgSDI8RpPkM&tbnid=mor2oqglmbZcuM&vet=12ahUKEwjSvd3C0NiFAxUGlK8BHQqwDoQQM3oECH4QAA..i&w=360&h=360&hcb=2&ved=2ahUKEwjSvd3C0NiFAxUGlK8BHQqwDoQQM3oECH4QAA';
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Timer(
-        Duration(seconds: 1),
-            ()async{
-          url = await getphotourl('faculty');
-          setState(() {
 
-          });
-        }
-    );
-  }
+  // String url ='https://www.google.com/imgres?q=person%20image&imgurl=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F01%2F65%2F63%2F94%2F360_F_165639425_kRh61s497pV7IOPAjwjme1btB8ICkV0L.jpg&imgrefurl=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dperson&docid=u8MkgSDI8RpPkM&tbnid=mor2oqglmbZcuM&vet=12ahUKEwjSvd3C0NiFAxUGlK8BHQqwDoQQM3oECH4QAA..i&w=360&h=360&hcb=2&ved=2ahUKEwjSvd3C0NiFAxUGlK8BHQqwDoQQM3oECH4QAA';
+  @override
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +44,9 @@ class _FacultyScreenState extends State<FacultyScreen> {
         ),
         actions: [
           InkWell(
-            onTap: () async {},
+            onTap: () async {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
+            },
             child:  Container(
               height: 30,
               width: 30,
@@ -63,7 +56,10 @@ class _FacultyScreenState extends State<FacultyScreen> {
               ),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: Image.network(url)),
+                  child: Image.network(Url)
+                // child: Container(),
+              ),
+
             ),
 
           ),

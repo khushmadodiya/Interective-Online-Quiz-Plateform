@@ -35,7 +35,7 @@ class _SpotCardForOnlineImagesState extends State<SpotCardForOnlineImages> {
     var Width = MediaQuery.of(context).size.width;
     return Container(
         padding: Width > 600
-            ? EdgeInsets.symmetric(horizontal: Width / 2.9)
+            ? EdgeInsets.symmetric(horizontal: Width / 3.5)
             : const EdgeInsets.symmetric(horizontal: 0),
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10),

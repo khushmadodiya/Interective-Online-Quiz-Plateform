@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart';
 
 import '../../Widgets/card_widget.dart';
 import '../../Widgets/spot_card_for_online_images.dart';
@@ -40,6 +41,7 @@ class _GuessState extends State<Guess> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+
           Navigator.push(context, MaterialPageRoute(builder: (context)=>AddNewimage(title: 'Add Image for Guessing', collname: 'GuessImg',)));
         },
         child: Icon(Icons.add,size: 40,),

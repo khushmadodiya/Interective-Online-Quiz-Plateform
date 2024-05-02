@@ -37,12 +37,12 @@ class _QuizBotState extends State<QuizBot> {
 
 
         body:
+
         Stack(
           children: [
-
             InAppWebView(
               initialUrlRequest: URLRequest(
-                  url: Uri.parse('https://mediafiles.botpress.cloud/efecab66-9e64-4046-aa87-4a43a6c9756f/webchat/bot.html')
+                  url: Uri.parse('https://mediafiles.botpress.cloud/0acb875b-230e-4424-a348-769d3b0e48a5/webchat/bot.html')
               ),
               onWebViewCreated: (InAppWebViewController controller){
                 inAppWebViewController = controller;

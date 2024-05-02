@@ -20,7 +20,7 @@ class _CreateQuizState extends State<CreateQuiz> {
     String res = await FireStoreMethos().createquiz(quiztitle: titlecontroller.text.trim(), name: namecontroller.text.trim(), subname: subjectcontroller.text.trim());
     if(res=='success'){
       shosnacbar(context, res);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>FacultyScreen()));
+      Navigator.pop(context);
     }
   }
   @override

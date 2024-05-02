@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  audio_session:
+    dependency: transitive
+    description:
+      name: audio_session
+      sha256: a49af9981eec5d7cd73b37bacb6ee73f8143a6a9f9bd5b6021e6c346b9b6cf4e
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.19"
   boolean_selector:
     dependency: transitive
     description:
@@ -384,6 +392,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_widget_from_html:
+    dependency: "direct main"
+    description:
+      name: flutter_widget_from_html
+      sha256: bc92fa62986a1d14bec92d26225bb7b37d581bd91efdad55158efa2eeb200b85
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.1"
+  flutter_widget_from_html_core:
+    dependency: transitive
+    description:
+      name: flutter_widget_from_html_core
+      sha256: "296485e685b44ad7c6883372aebc56038a28b84f75e7a668bcd8bf01de881739"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.1"
   fluttertoast:
     dependency: "direct main"
     description:
@@ -400,8 +424,64 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.7.0"
-  html:
+  fwfh_cached_network_image:
     dependency: transitive
+    description:
+      name: fwfh_cached_network_image
+      sha256: "3de22aa3a6943c968e0d9fbcba4463b3dbbf7103171d62c84b6c672fb83eebdf"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0+7"
+  fwfh_chewie:
+    dependency: transitive
+    description:
+      name: fwfh_chewie
+      sha256: "0b51a1c976bb74da5e8e45d545c74cb54a7168ad3938dd77103a7aee485f55fa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.1+4"
+  fwfh_just_audio:
+    dependency: transitive
+    description:
+      name: fwfh_just_audio
+      sha256: "237b93a4cb9f0495a4b51940f361adda2a5abd57231dd44f07459db00144a6cd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.0+3"
+  fwfh_svg:
+    dependency: transitive
+    description:
+      name: fwfh_svg
+      sha256: "556df67faf76b98c76dba144daf9fa9b3e874670e35b0a02d918402f8b8e98f5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.2+1"
+  fwfh_text_style:
+    dependency: transitive
+    description:
+      name: fwfh_text_style
+      sha256: "5f8b587fd223a6bf14aad3d3da5e7ced0628becbd0768f8e7ae25ff6b9f3d2ec"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.23.8"
+  fwfh_url_launcher:
+    dependency: transitive
+    description:
+      name: fwfh_url_launcher
+      sha256: "2a526c9819f74b4106ba2fba4dac79f0082deecd8d2c7011cd0471cb710e3eff"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.0+4"
+  fwfh_webview:
+    dependency: transitive
+    description:
+      name: fwfh_webview
+      sha256: "987ebaf94f3c42cddb6e0dbac6720a9cfc55c3510b770e925334373d91a12795"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.2+5"
+  html:
+    dependency: "direct main"
     description:
       name: html
       sha256: "3a7812d5bcd2894edf53dfaf8cd640876cf6cef50a8f238745c8b8120ea74d3a"
@@ -512,6 +592,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
+  just_audio:
+    dependency: transitive
+    description:
+      name: just_audio
+      sha256: b7cb6bbf3750caa924d03f432ba401ec300fd90936b3f73a9b33d58b1e96286b
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.37"
+  just_audio_platform_interface:
+    dependency: transitive
+    description:
+      name: just_audio_platform_interface
+      sha256: c3dee0014248c97c91fe6299edb73dc4d6c6930a2f4f713579cd692d9e47f4a1
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.2"
+  just_audio_web:
+    dependency: transitive
+    description:
+      name: just_audio_web
+      sha256: "134356b0fe3d898293102b33b5fd618831ffdc72bb7a1b726140abdf22772b70"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.9"
   keyboard_hider:
     dependency: "direct main"
     description:
@@ -705,7 +809,7 @@ packages:
     source: hosted
     version: "2.1.8"
   provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: provider
       sha256: c8a055ee5ce3fd98d6fc872478b03823ffdb448699c6ebdbbc71d59b596fd48c
@@ -889,10 +993,10 @@ packages:
     dependency: "direct main"
     description:
       name: url_launcher
-      sha256: "0ecc004c62fd3ed36a2ffcbe0dd9700aee63bd7532d0b642a488b1ec310f492e"
+      sha256: "6ce1e04375be4eed30548f10a315826fd933c1e493206eab82eed01f438c8d2e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.5"
+    version: "6.2.6"
   url_launcher_android:
     dependency: transitive
     description:

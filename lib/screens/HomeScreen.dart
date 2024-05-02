@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_platform/screens/sign_up_screen.dart';
-
+import 'package:webview_flutter/webview_flutter.dart';
 import 'login_screen.dart';
 import 'offline quizes/guess_name.dart';
 import 'offline quizes/quiz_bot.dart';
@@ -44,7 +44,7 @@ _tabController=TabController(length: 3, vsync: this);
               child: Text('QuizBot'),
             )
           ],
-          
+
         ),
         actions: [
 
@@ -118,18 +118,44 @@ _tabController=TabController(length: 3, vsync: this);
           )
         ],
       ),
-      body: TabBarView(
+
+      body:
+      TabBarView(
         physics: ScrollPhysics(),
         controller: _tabController,
         children: [
           Spot(),
           Guess(),
-          QuizBot()
+          QuizBot(),
+          // hello()
           // Text('hello')
         ]
 
       )
+      // Spot()
+    );
+  }
+}
+class hello extends StatefulWidget {
+  const hello({super.key});
 
+  @override
+  State<hello> createState() => _helloState();
+}
+
+class _helloState extends State<hello> {
+  WebViewController? controller;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: WebView(
+          initialUrl: 'https://mediafiles.botpress.cloud/0acb875b-230e-4424-a348-769d3b0e48a5/webchat/bot.html',
+        javascriptMode: JavascriptMode.disabled,
+        onWebViewCreated: (WebViewController web){
+            controller = web;
+        },
+
+      )
     );
   }
 }

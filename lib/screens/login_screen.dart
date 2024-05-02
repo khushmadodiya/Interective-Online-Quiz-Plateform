@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_platform/auth_screen.dart';
 import 'package:quiz_platform/main.dart';
 import 'package:quiz_platform/screens/sign_up_screen.dart';
 import 'package:quiz_platform/screens/student/studentscreen.dart';
@@ -42,12 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
      }
 
      if(selectedValue == value1 && res =='success'){
-
-Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const StudentScreen()), (route) => false);
+Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const AuthScreen(name: 'student',isst:true)), (route) => false);
      }
      else if(selectedValue == value2 && res =='success'){
-       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const FacultyScreen()), (route) => false);
-
+       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const AuthScreen(name: 'faculty')), (route) => false);
      }
      shosnacbar(context, res);
    }
