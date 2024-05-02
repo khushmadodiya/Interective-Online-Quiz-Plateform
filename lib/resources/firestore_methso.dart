@@ -221,7 +221,7 @@ class FireStoreMethos {
     String res = 'erro occured';
    try{
      await _firestore
-         .collection('admin')
+         .collection('quiz')
          .doc(quid)
          .collection('students')
          .doc(_auth.currentUser!.uid)

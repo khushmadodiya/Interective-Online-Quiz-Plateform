@@ -11,6 +11,7 @@ import 'package:quiz_platform/screens/student/studentscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
 
+
 var key ='';
 var Url='';
 var name='';

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -169,13 +167,8 @@ class _StudentScreenState extends State<StudentScreen> {
                                                 await SharedPreferences
                                                     .getInstance();
                                                 pref.setString('key', '');
-                                                Navigator.pushAndRemoveUntil(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder:
-                                                            (context) =>
-                                                            HomeScreen()),(route) => false
-                                                );
+                                                Navigator.popUntil(context, (route) => false);
+                                                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                                               }
                                             },
                                             child: Text('Yes')),

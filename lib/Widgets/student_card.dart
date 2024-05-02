@@ -50,10 +50,12 @@ class _StudentCardState extends State<StudentCard> {
         ),
         child: InkWell(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => QuestionScreen(snap: widget.snap)));
+           if(widget.snap['status']){
+             Navigator.push(
+                 context,
+                 MaterialPageRoute(
+                     builder: (context) => QuestionScreen(snap: widget.snap)));
+           }
           },
           child:
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -77,6 +79,7 @@ class _StudentCardState extends State<StudentCard> {
                   print('/n');
                   print(widget.snap['quizuid']);
                   await getmarks();
+                  print(marks);
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewScore(marks: marks,max:max)));},
                 child: Text('View Score'),
               )

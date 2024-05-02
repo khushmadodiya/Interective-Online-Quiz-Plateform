@@ -1,17 +1,17 @@
-import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quiz_platform/screens/HomeScreen.dart';
 import 'package:quiz_platform/screens/profile_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Widgets/facultycard.dart';
 import '../../main.dart';
 import '../../resources/auth_methods.dart';
-import '../login_screen.dart';
+
 import 'create_quiz.dart';
 
 
@@ -102,13 +102,13 @@ class _FacultyScreenState extends State<FacultyScreen> {
                                                         await SharedPreferences
                                                             .getInstance();
                                                     pref.setString('key', '');
-                                                    Navigator.pop(context);
-                                                    Navigator.pushReplacement(
+                                                    Navigator.popUntil(context, (route) => false);
+                                                    Navigator.push(
                                                         context,
                                                         MaterialPageRoute(
                                                             builder:
                                                                 (context) =>
-                                                                    MyApp()));
+                                                                    HomeScreen()));
                                                   }
                                                 },
                                                 child: Text('Yes')),
