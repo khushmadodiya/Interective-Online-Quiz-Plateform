@@ -1,10 +1,44 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_platform/screens/sign_up_screen.dart';
+// import 'package:webview_dart/webview_dart.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'login_screen.dart';
 import 'offline quizes/guess_name.dart';
 import 'offline quizes/quiz_bot.dart';
 import 'offline quizes/spot_the_diffrence.dart';
+class Homesplesh extends StatefulWidget {
+  const Homesplesh({super.key});
+
+  @override
+  State<Homesplesh> createState() => _HomespleshState();
+}
+
+class _HomespleshState extends State<Homesplesh> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(
+      Duration(seconds: 2),
+        (){
+         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+        }
+    );
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Container(
+          height: 400,
+          width: 400,
+          child: Image.asset('assets/ic_launcher.png'))),
+    );
+  }
+}
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -126,36 +160,16 @@ _tabController=TabController(length: 3, vsync: this);
         children: [
           Spot(),
           Guess(),
-          QuizBot(),
+          // WebBot()
+          kIsWeb?WebBot():QuizBot(),
           // hello()
           // Text('hello')
         ]
 
-      )
+      ),
       // Spot()
-    );
-  }
-}
-class hello extends StatefulWidget {
-  const hello({super.key});
 
-  @override
-  State<hello> createState() => _helloState();
-}
 
-class _helloState extends State<hello> {
-  WebViewController? controller;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: WebView(
-          initialUrl: 'https://mediafiles.botpress.cloud/0acb875b-230e-4424-a348-769d3b0e48a5/webchat/bot.html',
-        javascriptMode: JavascriptMode.disabled,
-        onWebViewCreated: (WebViewController web){
-            controller = web;
-        },
-
-      )
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:share/share.dart';
 import '../resources/firestore_methso.dart';
 import '../screens/faculty/marks_screen.dart';
 import '../screens/faculty/question_screen.dart';
@@ -136,6 +137,10 @@ class _FacultyCardState extends State<FacultyCard> {
                                         onPressed: _copyToClipboard,
                                         icon: Icon(Icons.copy),
                                       ),
+                                      IconButton(onPressed: (){
+                                        Share.share('Click here https://online-quiz-8566e.web.app/ and join throught this code ${ widget.snap['quizuid'].toString()}');
+                                        Navigator.pop(context);
+                                      }, icon: Icon(Icons.share))
                                     ],
                                   ),
                                 ),

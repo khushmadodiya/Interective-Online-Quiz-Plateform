@@ -48,71 +48,77 @@ class _EditQuestionScreenState extends State<EditQuestionScreen> {
   @override
   Widget build(BuildContext context) {
     final Width = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Container(
-          padding: Width > 600
-              ? EdgeInsets.symmetric(horizontal: Width / 2.9)
-              : const EdgeInsets.symmetric(horizontal: 40),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
-                InputText(controller: questioncontroller, hint: "Enter Question"),
-                SizedBox(
-                  height: 20,
-                ),
-                InputText(controller:option1controller, hint: "Enter option 1"),
-                SizedBox(
-                  height: 20,
-                ),
-                InputText(controller:option2controller, hint: "Enter option 2"),
-                SizedBox(
-                  height: 20,
-                ),
-                InputText(controller:option3controller, hint: "Enter option 3"),
-                SizedBox(
-                  height: 20,
-                ),
-                InputText(controller:option4controller, hint: "Enter option 4"),
-                SizedBox(
-                  height: 20,
-                ),
-                Text('Select right option'),
-                SizedBox(height: 5,),
-                DropdownButton<String>(
-                  hint: Text('select right option',style: TextStyle(color: Colors.black),),
-                  borderRadius: BorderRadius.circular(10),
-                  icon: Icon(Icons.person),
-                  iconEnabledColor: Colors.deepPurple,
-                  value: selectedValue,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      selectedValue = newValue!;
-                    });
-                  },
-                  items: <String>[
-                    option1,
-                    option2,
-                    option3,
-                    option4
-                  ].map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                        value: value, child: Text(value));
-                  }).toList(),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                FilledButton(onPressed: _submit, child: Text('  Submit  ')),
-                SizedBox(height: 20,)
-              ],
+    return GestureDetector(
+      onTap: (){
+        FocusScope.of(context).unfocus();
+      },
+
+      child: SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: Container(
+            padding: Width > 600
+                ? EdgeInsets.symmetric(horizontal: Width / 2.9)
+                : const EdgeInsets.symmetric(horizontal: 40),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  InputText(controller: questioncontroller, hint: "Enter Question"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InputText(controller:option1controller, hint: "Enter option 1"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InputText(controller:option2controller, hint: "Enter option 2"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InputText(controller:option3controller, hint: "Enter option 3"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InputText(controller:option4controller, hint: "Enter option 4"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('Select right option'),
+                  SizedBox(height: 5,),
+                  DropdownButton<String>(
+                    hint: Text('select right option',style: TextStyle(color: Colors.black),),
+                    borderRadius: BorderRadius.circular(10),
+                    icon: Icon(Icons.person),
+                    iconEnabledColor: Colors.deepPurple,
+                    value: selectedValue,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedValue = newValue!;
+                      });
+                    },
+                    items: <String>[
+                      option1,
+                      option2,
+                      option3,
+                      option4
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                          value: value, child: Text(value));
+                    }).toList(),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  FilledButton(onPressed: _submit, child: Text('  Submit  ')),
+                  SizedBox(height: 20,)
+                ],
+              ),
             ),
           ),
         ),

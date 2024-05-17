@@ -65,9 +65,11 @@ class AuthMethod {
   Future<String> loginUser({
     required String email,
     required String password,
+    required String type
   }) async {
     String res = "Some error Occurred";
     try {
+
       if (email.isNotEmpty && password.isNotEmpty) {
         // logging in user with email and password
         await _auth.signInWithEmailAndPassword(

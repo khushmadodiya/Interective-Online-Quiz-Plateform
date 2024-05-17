@@ -8,9 +8,10 @@ import '../utils/utils.dart';
 class QuizWidget extends StatefulWidget {
   final snap;
   final quizuid;
+
   final index;
   const QuizWidget(
-      {super.key, required this.snap, this.index, required this.quizuid});
+      {super.key, required this.snap, this.index, required this.quizuid,});
 
   @override
   State<QuizWidget> createState() => _QuizWidgetState();
@@ -19,21 +20,29 @@ class QuizWidget extends StatefulWidget {
 class _QuizWidgetState extends State<QuizWidget> {
   int selectedValue = 0;
   Future<void> check() async {
-    print(widget.snap['ans']);
+    print(widget.snap!['ans']);
     print('option$selectedValue');
-    if (widget.snap['ans'] == 'option$selectedValue') {
-       String res= await FireStoreMethos().updateans(quid: widget.quizuid, index: widget.index);
-       print(res);
+    if (widget.snap!['ans'] == 'option$selectedValue') {
+      print('yes');
+      String res = await FireStoreMethos().updateans(
+          quid: widget.quizuid, index: widget.index);
+      // print(res);
     }
-    else{
-      String res = await FireStoreMethos().updatetozero(quid: widget.quizuid, index: widget.index);
-      print (res);
+    else {
+      String res = await FireStoreMethos().updatetozero(
+          quid: widget.quizuid, index: widget.index);
+      print('no');
+      // print (res);
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery
+        .of(context)
+        .size
+        .width;
 
     return Container(
         margin: EdgeInsets.symmetric(
@@ -121,4 +130,5 @@ class _QuizWidgetState extends State<QuizWidget> {
           ),
         ]));
   }
+
 }

@@ -21,7 +21,7 @@ class _AuthScreenState extends State<AuthScreen> {
   void initState() {
     super.initState();
     _timer = Timer(
-      Duration(seconds: 1),
+      Duration(seconds: 2),
           () async {
         await getphotourl(widget.name, context);
         if (widget.isst) {
@@ -49,7 +49,10 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: CircularProgressIndicator()),
+      body: Center(child: Container(
+        height: 400,
+          width: 400,
+          child: Image.asset('assets/ic_launcher.png'))),
     );
   }
 }

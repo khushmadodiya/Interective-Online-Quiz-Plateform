@@ -20,6 +20,9 @@ class InputText extends StatelessWidget {
         contentPadding: const EdgeInsets.all(8),
       ),
       obscureText: ispass ? true : false,
+      onSubmitted: (_) {
+        FocusScope.of(context).unfocus();
+      },
     );
   }
 }

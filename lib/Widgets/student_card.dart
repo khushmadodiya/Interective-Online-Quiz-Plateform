@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quiz_platform/resources/fetchquestions.dart';
 import 'package:quiz_platform/screens/student/view_score.dart';
 import '../screens/faculty/question_screen.dart';
 import '../screens/student/quiz_screen.dart';
@@ -12,6 +13,7 @@ import '../utils/utils.dart';
 
 class StudentCard extends StatefulWidget {
   final snap;
+
   const StudentCard({
     super.key,
     required this.snap,
@@ -72,7 +74,8 @@ class _StudentCardState extends State<StudentCard> {
                 onPressed: (){
                   print('/n');
                   print(widget.snap['quizuid']);
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Quiz(snap: widget.snap,)));},
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Circulerendicator(snap: widget.snap, )));},
                 child: Text('Join Quiz'),
               ):ElevatedButton(
                 onPressed: ()async{

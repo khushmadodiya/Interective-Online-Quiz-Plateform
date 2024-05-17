@@ -58,6 +58,10 @@ dependencies:
   html: ^0.15.4
   flutter_widget_from_html: ^0.9.1
   provider: ^6.1.2
+  webview_flutter_web: ^0.1.0+4
+  share: ^2.0.4
+
+
 
 
 dev_dependencies:

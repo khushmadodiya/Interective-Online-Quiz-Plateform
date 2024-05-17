@@ -26,39 +26,44 @@ class _CreateQuizState extends State<CreateQuiz> {
   @override
   Widget build(BuildContext context) {
     final Width = MediaQuery.of(context).size.width;
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Create Quiz"),
-        ),
+    return GestureDetector(
+      onTap: (){
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text("Create Quiz"),
+          ),
 
-      body: Container(
-        padding: Width > 600
-            ? EdgeInsets.symmetric(horizontal: Width / 2.9)
-            : const EdgeInsets.symmetric(horizontal: 40),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 70,
-              ),
-              InputText(controller: titlecontroller, hint: "Enter QuizTitle"),
-              SizedBox(
-                height: 20,
-              ),
-              InputText(controller:namecontroller, hint: "Enter your Name"),
-              SizedBox(
-                height: 20,
-              ),
-              InputText(controller:subjectcontroller, hint: "Enter subject name (optional)"),
-              SizedBox(
-                height: 20,
-              ),
-              FilledButton(onPressed: _submit, child: Text('  Submit  ')),
-              SizedBox(height: 20,)
-            ],
+        body: Container(
+          padding: Width > 600
+              ? EdgeInsets.symmetric(horizontal: Width / 2.9)
+              : const EdgeInsets.symmetric(horizontal: 40),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 70,
+                ),
+                InputText(controller: titlecontroller, hint: "Enter QuizTitle"),
+                SizedBox(
+                  height: 20,
+                ),
+                InputText(controller:namecontroller, hint: "Enter your Name"),
+                SizedBox(
+                  height: 20,
+                ),
+                InputText(controller:subjectcontroller, hint: "Enter subject name (optional)"),
+                SizedBox(
+                  height: 20,
+                ),
+                FilledButton(onPressed: _submit, child: Text('  Submit  ')),
+                SizedBox(height: 20,)
+              ],
+            ),
           ),
         ),
       ),

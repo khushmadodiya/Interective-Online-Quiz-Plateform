@@ -33,29 +33,33 @@ class _JoinQuizState extends State<JoinQuiz> {
   @override
   Widget build(BuildContext context) {
     final Width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Join Quiz"),
-      ),
+    return GestureDetector(
+      onTap: (){ FocusScope.of(context).unfocus();},
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Join Quiz"),
+        ),
 
-      body: Container(
-        padding: Width > 600
-            ? EdgeInsets.symmetric(horizontal: Width / 2.9)
-            : const EdgeInsets.symmetric(horizontal: 40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 70,
-            ),
-            InputText(controller: codecontroller, hint: "Enter code"),
-            SizedBox(
-              height: 20,
-            ),
-            FilledButton(onPressed: _submit, child: flag ? CircularProgressIndicator(color: Colors.white,): Text('  Submit  ')),
-            SizedBox(height: 20,)
-          ],
+        body: Container(
+          padding: Width > 600
+              ? EdgeInsets.symmetric(horizontal: Width / 2.9)
+              : const EdgeInsets.symmetric(horizontal: 40),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 70,
+              ),
+              InputText(controller: codecontroller, hint: "Enter code"),
+              SizedBox(
+                height: 20,
+              ),
+              FilledButton(onPressed: _submit, child: flag ? CircularProgressIndicator(color: Colors.white,): Text('  Submit  ')),
+              SizedBox(height: 20,)
+
+            ],
+          ),
         ),
       ),
     );

@@ -204,10 +204,11 @@ class _StudentScreenState extends State<StudentScreen> {
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
-              return snapshot.data!.docs.length<=0?Container(
 
+              return snapshot.data!.docs.length<=0?Container(
               ):StudentCard(
                 snap: snapshot.data!.docs[index].data(),
+
               );
             },
           );

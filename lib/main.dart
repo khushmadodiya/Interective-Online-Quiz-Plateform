@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                 child: CircularProgressIndicator(),
               );
             }
-            return HomeScreen();
+            return Homesplesh();
       },
         ),
       ),
